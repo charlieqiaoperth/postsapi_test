@@ -33,7 +33,11 @@ function deletePostById(id) {
 }
 
 function getPostIndexById(id) {
-    return posts.findIndex(i =>i.id===id)
+    return posts.findIndex(i =>i.id===id);
+}
+
+function doesIdExist(id) {
+    return getPostIndexById !== -1;
 }
 
 module.exports = {
@@ -41,5 +45,6 @@ module.exports = {
     getAllPost,
     getPostById,
     updatePostById,
-    deletePostById
+    deletePostById,
+    doesIdExist
 }
