@@ -1,0 +1,26 @@
+{
+  "name": "postsapi_test",
+  "version": "1.0.0",
+  "description": "express server api test",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charlieqiaoperth/postsapi_test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/charlieqiaoperth/postsapi_test/issues"
+  },
+  "homepage": "https://github.com/charlieqiaoperth/postsapi_test#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.11"
+  }
+}
