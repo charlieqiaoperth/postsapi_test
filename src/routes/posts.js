@@ -14,9 +14,9 @@ const router = express.Router();
 
 router.post('',addPost);
 router.get('',getAllPost);
-router.get('', validateId, getPostById);
-router.delete('', validateId, deletePostById);
-router.put('', validateId, updatePostById);
+router.get('/:id', validateId, getPostById);
+router.delete('/:id', validateId, deletePostById);
+router.put('/:id', validateId, updatePostById);
 
 module.exports = router;
 

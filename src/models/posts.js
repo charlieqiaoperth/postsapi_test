@@ -9,7 +9,7 @@ function addPost(post) {
 
 
 function getAllPost() {
-    return JSON.parse(JSON.stringify(post));
+    return JSON.parse(JSON.stringify(posts));
 }
 
 function getPostById(id) {
@@ -33,12 +33,13 @@ function deletePostById(id) {
 }
 
 function getPostIndexById(id) {
-    return posts.findIndex(i =>i.id===id);
+    return posts.findIndex(i =>i.id === id);
 }
 
 function doesIdExist(id) {
-    return getPostIndexById !== -1;
+    return getPostIndexById(id) !== -1;
 }
+
 
 module.exports = {
     addPost,
