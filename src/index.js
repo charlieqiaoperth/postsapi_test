@@ -1,5 +1,7 @@
 const express = require('express');
 require('dotenv').config();
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require( './swagger/swagger.json');
 const helmet = require('helmet');//保护框架信息和版本信息
 const morgan = require('morgan');
 const cors =  require('cors');//支持跨域请求
@@ -18,6 +20,8 @@ app.use(cors());
 
 app.use(express.json()); //从body取得json数据
 
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use('/v1', routes);
 
 app.listen(PORT, () => {
