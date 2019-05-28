@@ -1,0 +1,169 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Posts API",
+    "description": "a simple CRUD restful example"
+  },
+  "tags": [
+    {
+      "name": "posts",
+      "description": "Everything about posts"
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "basePath": "/v1",
+  "paths": {
+    "/posts": {
+      "get": {
+        "tags": [
+          "posts"
+        ],
+        "summary": "Gets all records",
+        "description": "Returns a list containing all records.",
+        "responses": {
+          "200": {
+            "description": "A list of Person",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Record"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "posts"
+        ],
+        "summary": "Creates a record",
+        "description": "Adds a new record to the posts array.",
+        "parameters": [
+          {
+            "name": "record",
+            "in": "body",
+            "description": "The author and the contant",
+            "schema": {
+              "$ref": "#/definitions/Record"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Succesfully created."
+          },
+          "400": {
+            "description": "Couldn't have been created."
+          }
+        }
+      }
+    },
+    "/posts/{id}": {
+      "get": {
+        "tags": [
+          "posts"
+        ],
+        "summary": "Gets a record",
+        "description": "Returns a single record for its id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The record's id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A record",
+            "schema": {
+              "$ref": "#/definitions/Record"
+            }
+          },
+          "404": {
+            "description": "The Person does not exists."
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "posts"
+        ],
+        "summary": "Update a record",
+        "description": "Returns a single record for its id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The record's id",
+            "type": "integer"
+          },
+          {
+            "name": "author",
+            "in": "body",
+            "description": "new content an author",
+            "schema": {
+              "$ref": "#/definitions/Record"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A record",
+            "schema": {
+              "$ref": "#/definitions/Record"
+            }
+          },
+          "404": {
+            "description": "The Record does not exists."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "posts"
+        ],
+        "summary": "Update a record",
+        "description": "Returns a single record for its id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The record's id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A record",
+            "schema": {
+              "$ref": "#/definitions/Record"
+            }
+          },
+          "404": {
+            "description": "The Record does not exists."
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Record": {
+      "type": "object",
+      "properties": {
+        "author": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
